@@ -1,4 +1,4 @@
-FROM object_detection_base:latest
+FROM object_detection_base:cuda11
 ENV LANG C.UTF-8
 
 COPY test.zip /tmp

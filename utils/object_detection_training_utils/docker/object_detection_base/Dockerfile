@@ -1,5 +1,6 @@
 # FROM nvidia/cudagl:10.0-base-ubuntu16.04
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
+# FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:11.1-cudnn8-devel-ubuntu16.04
 ENV LANG C.UTF-8
 RUN apt-get update && apt-get install -y git wget apt-utils
 RUN apt-get install -y software-properties-common
