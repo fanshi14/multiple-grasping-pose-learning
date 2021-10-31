@@ -33,5 +33,5 @@ cat <<EOF | ssh -t $DLBOX_IP
     tar -xf $DATASET_NAME -C object_detection_docker/object_detection/
     docker build -t object_detection_base/cuda11 object_detection_docker/object_detection_base
     docker build -t object_detection/cuda11 object_detection_docker/object_detection
-    docker run --privileged -i --gpus all object_detection bash docker_train.sh
+    docker run --privileged -i --gpus all object_detection/cuda11 bash docker_train.sh
 EOF
