@@ -43,10 +43,15 @@ if __name__ == "__main__":
             sampled_point = points[::8]
             sorted_point = np.sort(points,axis=0)
             rgb_img = cv2.imread(rgbfile)
-            min_x = sorted_point[0][0] - (sorted_point[-1][0] - sorted_point[0][0])
-            min_y = sorted_point[0][1] - (sorted_point[-1][1] - sorted_point[0][1])
-            max_x = sorted_point[-1][0] + (sorted_point[-1][0] - sorted_point[0][0])
-            max_y = sorted_point[-1][1] + 10
+            # min_x = sorted_point[0][0] - (sorted_point[-1][0] - sorted_point[0][0])
+            # min_y = sorted_point[0][1] - (sorted_point[-1][1] - sorted_point[0][1])
+            # max_x = sorted_point[-1][0] + (sorted_point[-1][0] - sorted_point[0][0])
+            # max_y = sorted_point[-1][1] + 10
+            ## reduce enlarge aera
+            min_x = max(sorted_point[0][0] - (sorted_point[-1][0] - sorted_point[0][0]), sorted_point[0][0] - 50)
+            min_y = max(sorted_point[0][1] - (sorted_point[-1][1] - sorted_point[0][1]), sorted_point[0][1] - 25)
+            max_x = min(sorted_point[-1][0] + (sorted_point[-1][0] - sorted_point[0][0]), sorted_point[-1][0] + 50)
+            max_y = sorted_point[-1][1] + 25
             if(min_x<0):
                 min_x = 0
             if(min_y<0):
